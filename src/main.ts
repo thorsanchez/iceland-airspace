@@ -16,7 +16,7 @@ const map = new mapboxgl.Map({
 
 map.on("load", async () => {
   // Þegar map buið að loada þá:
-  const planeIcon = new Image(30, 30);
+  const planeIcon = new Image(20, 20);
   planeIcon.onload = () => map.addImage("plane-icon", planeIcon);
   planeIcon.src = "data:image/svg+xml;base64," + btoa(`
     <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@ map.on("load", async () => {
     source: "flights",
     layout: {
       "text-field": ["get", "callsign"],
-      "text-size": 20,
+      "text-size": 10,
       "text-offset": [0, 2],
       "text-anchor": "top",
       "text-allow-overlap": false,
@@ -231,7 +231,7 @@ async function loadAndAnimateLast24h() {
       }
 
       //Geojson features for aircraft points
-      
+
       const features: GeoJSON.Feature<GeoJSON.Point>[] = Array.from(latestByAircraft.values())
         .map(state => ({
           type: "Feature",
